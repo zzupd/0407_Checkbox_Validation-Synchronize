@@ -18,21 +18,17 @@ $(function () {
     });
     /* 체크박스 유효성 검사 끝 */
 
-    var token = 0;
-    /* 체크박스 동기화 시작 */
 
-        /* 1. 전체동의 체크 => 하위 체크박스 체크여부 결정 */
+    /* 1. 전체동의 체크 => 하위 체크박스 체크여부 결정 */
     $("#wholeChk").click(function(){
 
         var chkYN = $(this).prop("checked");
+        // chkYN => true, false 중에 1개 값
+
         if (chkYN) {
-            $(".subChkbox").prop("checked", "true");
+            $(".subChkbox").prop("checked", true);
         } else {
-            //$(".subChkbox").removeProp("checked", "false");
-            document.getElementById("chk1").checked = false;
-            document.getElementById("chk2").checked = false;
-            document.getElementById("chk3").checked = false;
-            document.getElementById("chk4").checked = false;
+            $(".subChkbox").prop("checked", false);
         }
     });
 
@@ -45,11 +41,10 @@ $(function () {
         var chk4 = $("#chk4").prop("checked");
 
         if (chk1 && chk2 && chk3 && chk4) {
-            $("#wholeChk").prop("checked", "true");
+            $("#wholeChk").prop("checked", true);
         } else {
-            document.getElementById("wholeChk").checked = false;
+            $("#wholeChk").prop("checked", false);
         }
-
 
     });
 
